@@ -8,7 +8,7 @@ class ImageDoesNotExist(APIException):
 
 
 class OriginalImageTypeDoesNotExist(APIException):
-    """Message of exception if image object does not exist in database"""
+    """Message of exception if type for original image was not created via admin panel and does not exist in database"""
     status_code = 500
     default_detail = 'There is no created type for original image  in DB.' \
                      'You should create this type via admin panel in Thumbnail types section'
