@@ -9,7 +9,7 @@ from api_app.models import Image, ThumbnailType
 from api_app.permissions import CreateExpiredLinkPermission, HasUserAccountTier
 from api_app.serializers import ImageListSerializer, ExpiredLinkCreateSerializer, ImageSerializer
 from api_app.services import resize_image, set_link_expiring_datetime, get_base64_encode_image
-from api_image_links.settings import domen_and_port_for_link
+from api_image_links.settings import domain_and_port_for_link
 
 
 class CreateImage(CreateAPIView):
@@ -67,5 +67,5 @@ class ExpiredLinkCreateView(CreateAPIView):
             title=title,
             image_base_64=image_base_64
         )
-        _serializer.expiry_link = f'{domen_and_port_for_link}/temp/{_serializer.uuid_link}'
+        _serializer.expiry_link = f'{domain_and_port_for_link}/temp/{_serializer.uuid_link}'
         _serializer.save()
